@@ -1,35 +1,32 @@
-console.log(JavaScript - Day -3: JS Array & objects);
+ console.log(JavaScript - Day -3: JS Array & objects);
 
-//Q1:How to compare 2 JSON having same property without order
-//a.let object1={name:"person1",age:5}
-//b..let object2={age:5,name:"person1"}
+// //Q1:How to compare 2 JSON having same property without order
+// //a.let object1={name:"person1",age:5}
+// //b..let object2={age:5,name:"person1"}
 
-// Solution:
+//Q2:By using RestContry API show all the country flags in the console 
+// Step1:Create a XHR object
 
-let object1={name:"person1",age:5};
-let object2={age:5,name:"person1"};
-var result = true;
+// Synatx:var variablename= new XMLHttpRequest();
 
-if(Object.keys(object1).length)==(Object.keys(Object2).length)
-{
-    for(var key in object1)
-    {
-        if(object1(key)==object2(key))
-        {
-            continue;
-        }
-        else{
-            result=false;
-            break;
-        }
-    }
+var req= new XMLHttpRequest();
+//Step2 :Specify the URL of the API 
 
+//Syntax:varname.open("GET","URL API to be specified")
+
+req.open("GET","https://restcountries.com/v3.1/all"); 
+
+//STEP3:Send the request
+
+req.send();  //Sends our request to the API
+
+//Step 4: Once the request data is there on the server data is successfully loaded
+
+//Success code 200 status code
+
+//Functions are used to perform specific tasks
+
+req.onload=function(){
+    var result = JSON.parse(req.response);
+    console.log(result);
 }
-else
-{
-    result=false;
-    break;
-}
-console.log(result);
-
-

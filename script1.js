@@ -29,5 +29,3 @@ req.onload = function () {
     console.log(result[i].flags);
   }
 };
-
-
